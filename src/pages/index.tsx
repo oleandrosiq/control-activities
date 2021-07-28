@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Head } from 'next/document';
+import Head from 'next/head';
 
 import { Header } from '../components/Header';
 import { Summary } from '../components/Summary';
