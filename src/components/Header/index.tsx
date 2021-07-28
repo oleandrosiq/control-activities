@@ -1,12 +1,16 @@
 import { Container } from './styles';
 
-export function Header() {
+interface HeaderProps {
+  onOpenNewActivityModal: () => void;
+}
+
+export function Header({ onOpenNewActivityModal }: HeaderProps) {
   return (
     <Container>
       <div>
-        <h2>Job.Challenge</h2>
+        <h2>Control.Activities</h2>
 
-        <button type="button">
+        <button type="button" onClick={onOpenNewActivityModal}>
           Nova Atividade
         </button>
       </div>

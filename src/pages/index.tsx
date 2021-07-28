@@ -1,23 +1,35 @@
+import { useState } from 'react';
 import Head from 'next/Head';
 
 import { Header } from '../components/Header';
 import { Summary } from '../components/Summary';
 import { Activities } from '../components/Activities';
+import { NewActivityModal } from '../components/NewActivityModal';
 
 export default function Home() {
+  const [isNewActivityModalOpen, setIsNewActivityModalOpen] = useState(false);
+
+  function handleOpenNewActivityModal() {
+    setIsNewActivityModalOpen(true)
+  }
+
+  function handleCloseNewActivityModal() {
+    setIsNewActivityModalOpen(false);
+  }
+
   return (
     <>
       <Head>
-        <title>Job Challenger</title>
+        <title>Control Activities - Home</title>
       </Head>
     
-      <Header />
-      <Summary 
-        canceled={3}
-        completed={4}
-        pending={2}
-      />
+      <Header onOpenNewActivityModal={handleOpenNewActivityModal} />
+      <Summary />
       <Activities />
+      <NewActivityModal 
+        isOpen={isNewActivityModalOpen}
+        onCloseRequest={handleCloseNewActivityModal}
+      />
     </>
   );
 }

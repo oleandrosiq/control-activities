@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  border-bottom: 1px solid var(--shape);
-
   div {
     max-width: 1020px;
     margin: 0 auto;
@@ -10,6 +8,11 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between; 
+
+    @media (max-width: 550px) {
+      flex-direction: column;
+      gap: 2rem;
+    }
 
     h2 {
       color: var(--white);

@@ -4,7 +4,7 @@ export const Container = styled.div`
   max-width: 800px;
   margin: 0 auto;
   margin-top: 6rem;
-  padding-bottom: 4rem;
+  padding: 0 2rem 4rem;
 
   > div {
     border: 1px solid var(--violet);
@@ -16,9 +16,10 @@ export const Container = styled.div`
       align-items: center;
       justify-content: space-between;
       padding: 1rem 0;
-      
+
       h1 {
         font-size: 1.3rem;
+        padding-right: 1rem;
       }
 
       button {
@@ -28,26 +29,16 @@ export const Container = styled.div`
         border: none;
         border-radius: 0.25rem;
 
-        transition: all .2s ease-in-out;
+        transition: filter .2s ease-in-out;
 
         &:hover {
-          transform: scale(1.06);
           filter: brightness(0.8);
         }
+      }
 
-        &.completed {
-          background: var(--green);
-          color: var(--white);
-        }
-
-        &.canceled {
-          background: var(--red);
-          color: var(--white);
-        }
-
-        &.pending {
-          background: var(--secondary);
-          color: var(--icons);
+      @media (max-width: 650px) {
+        button {
+          padding: 0 1rem;
         }
       }
     }
@@ -83,6 +74,11 @@ export const Actions = styled.div`
   align-items: center;
   gap: 2rem;
 
+  @media (max-width: 550px) {
+    flex-direction: column;
+    gap: 1rem;     
+  }
+
   button {
     display: flex;
     align-items: center;
@@ -90,5 +86,20 @@ export const Actions = styled.div`
     background: none;
     border: 0;
     color: var(--white);
+    position: relative;
+
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      &:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: var(--violet);
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+      }
+    }
   }
 `;
