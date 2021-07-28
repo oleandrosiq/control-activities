@@ -58,6 +58,11 @@ export const Container = styled.div`
           }
         }
       }
+
+      @media (max-width: 500px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
     }
   }
 `;
